@@ -18,12 +18,6 @@ dev/reports/
 # SASS Cache files
 .sass-cache/
 
-# Generated CSS files
-css/
-dev/scss/*.css
-
-# Generated JS Files
-js/
 
 
 
