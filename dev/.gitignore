@@ -1,0 +1,5 @@
+# Ignore processed files
+.grunt
+.sass-cache
+node_modules
+reports
