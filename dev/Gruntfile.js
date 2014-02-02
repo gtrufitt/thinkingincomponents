@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     /* Change these paths to change the structure of your project. */
     var JS_PATH = 'js/',
         REPORTS_PATH = 'reports/',
-        COVERAGE_REPORT_PATH = REPORTS_PATH + 'coverage/',
+        // COVERAGE_REPORT_PATH = REPORTS_PATH + 'coverage/',
         MODULES_PATH = JS_PATH + 'modules/',
         ROOT_MODULE = 'app',
         TESTS_PATH = JS_PATH + 'tests/',
@@ -33,12 +33,12 @@ module.exports = function (grunt) {
         ALL_SASS = SASS_PATH + '**/*.scss',
         ALL_CSS = CONTENT_CSS_PATH + '**',
         ALL_REPORTS = REPORTS_PATH + '**',
-        SASS_FILE_MAP = {},
-        NON_ROOT_AND_THIRD_PARTY_JAVASCRIPT = [
-            ALL_MODULES,
-            '!' + MODULES_PATH + ROOT_MODULE + '.js',
-            '!' + JQUERY_PATH
-        ];
+        SASS_FILE_MAP = {};
+        // NON_ROOT_AND_THIRD_PARTY_JAVASCRIPT = [
+        //     ALL_MODULES,
+        //     '!' + MODULES_PATH + ROOT_MODULE + '.js',
+        //     '!' + JQUERY_PATH
+        // ];
 
     /* Sass File Map. Maps input SASS to output CSS. Add more mappings as needed. */
     SASS_FILE_MAP[CSS_BUNDLE] = ROOT_SASS_FILE;
@@ -151,6 +151,22 @@ module.exports = function (grunt) {
             }
         },
 
+        /* ASSEMBLE */
+        assemble: {
+            options: {
+                assets: 'assets',
+                partials: ['partials/**/*.hbs'],
+                layout: ['layouts/default.hbs'],
+                data: ['data/*.{json,yml}']
+            },
+            pages: {
+                expand: true,
+                cwd: 'pages',
+                src: ['*.hbs'],
+                dest: CONTENT_PATH
+            }
+        },
+
         /* REQUIREJS BUNDLING */
         /* See http://is.gd/rjsopts for more options */
         requirejs: {
@@ -166,48 +182,48 @@ module.exports = function (grunt) {
 
         /* WATCH */
         watch: {
-            files: [ALL_SASS, ALL_JAVASCRIPT],
+            files: [ALL_SASS, ALL_JAVASCRIPT, '**/*.{hbs,json,yml,md}'],
             tasks: ['default']
-        },
+        }
 
         /* JASMINE */
         /* See http://pivotal.github.io/jasmine/ for a full guide. */
-        jasmine: {
-            test: {
-                options: {
-                    specs: ALL_SPECS,
-                    template: require('grunt-template-jasmine-requirejs'),
-                    templateOptions: {
-                        requireConfig: {
-                            baseUrl: MODULES_PATH
-                        }
-                    }
-                }
-            },
-            coverage: {
-                src: NON_ROOT_AND_THIRD_PARTY_JAVASCRIPT,
-                options: {
-                    specs: ALL_SPECS,
-                    vendor: [JS_PATH + 'require.js'],
-                    template: require('grunt-template-jasmine-istanbul'),
-                    templateOptions: {
-                        coverage: COVERAGE_REPORT_PATH + 'coverage.json',
-                        report: {
-                            type: 'lcov',
-                            options: {
-                                dir: COVERAGE_REPORT_PATH + 'lcov'
-                            }
-                        },
-                        thresholds: {
-                            lines: 0,
-                            statements: 0,
-                            branches: 0,
-                            functions: 0
-                        }
-                    }
-                }
-            }
-        }
+        // jasmine: {
+        //     test: {
+        //         options: {
+        //             specs: ALL_SPECS,
+        //             template: require('grunt-template-jasmine-requirejs'),
+        //             templateOptions: {
+        //                 requireConfig: {
+        //                     baseUrl: MODULES_PATH
+        //                 }
+        //             }
+        //         }
+        //     },
+        //     coverage: {
+        //         src: NON_ROOT_AND_THIRD_PARTY_JAVASCRIPT,
+        //         options: {
+        //             specs: ALL_SPECS,
+        //             vendor: [JS_PATH + 'require.js'],
+        //             template: require('grunt-template-jasmine-istanbul'),
+        //             templateOptions: {
+        //                 coverage: COVERAGE_REPORT_PATH + 'coverage.json',
+        //                 report: {
+        //                     type: 'lcov',
+        //                     options: {
+        //                         dir: COVERAGE_REPORT_PATH + 'lcov'
+        //                     }
+        //                 },
+        //                 thresholds: {
+        //                     lines: 0,
+        //                     statements: 0,
+        //                     branches: 0,
+        //                     functions: 0
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     });
 
     /* LOAD PLUGINS */
@@ -221,17 +237,21 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('assemble');
 
     /* TARGET TASKS */
-    grunt.registerTask('local-js', ['jshint', 'jasmine:test', 'clean:js', 'copy:js']);
-    grunt.registerTask('build-js', ['jshint', 'jasmine:test', 'clean:reports', 'clean:js',
+    grunt.registerTask('local-html', ['assemble']);
+    grunt.registerTask('build-html', ['assemble']);
+
+    grunt.registerTask('local-js', ['jshint', 'clean:js', 'copy:js']);
+    grunt.registerTask('build-js', ['jshint', 'clean:reports', 'clean:js',
                                     'copy:libraries', 'requirejs', 'jasmine:coverage']);
 
     grunt.registerTask('local-css', ['clean:css', 'sass:local']);
     grunt.registerTask('build-css', ['clean:css', 'sass:build']);
 
     /* TARGETS */
-    grunt.registerTask('local', ['local-js', 'local-css']);
-    grunt.registerTask('build', ['build-js', 'build-css']);
+    grunt.registerTask('local', ['local-html', 'local-js', 'local-css']);
+    grunt.registerTask('build', ['build-html', 'build-js', 'build-css']);
     grunt.registerTask('default', ['local']);
 };
