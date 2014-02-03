@@ -1,0 +1,3 @@
+## Component audit
+
+A component audit can be a quick list or a full table of components, but is designed to take a non-componentised design and list the related components and their modifications in a quick reference. You may even find that the front-end developer and designer spending an hour or two working on a component audit together that the beginning of the project helps to iron out any miscommunication between the implementation and design.
