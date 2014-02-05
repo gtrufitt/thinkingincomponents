@@ -8,39 +8,45 @@ Using Assemble, we can generate our mark-up within partials using handlebars. Th
 
 Handlebars Mark-up (highlight-box.hbs):
 
-    <div class="highlight-box{{if classes}} classes{{/if}}">
-        <h2 class="highlight-box__title">{{title}}</h2>
-        <p>{{content}}</p>
-    </div>
+```handlebars
+<div class="highlight-box\{{if classes}} classes\{{/if}}">
+    <h2 class="highlight-box__title">\{{title}}</h2>
+    <p>\{{content}}</p>
+</div>
+```
 
 Data (highlight-box.json):
 
-    {
-        "highlight-box": {
-            "title": "Normal news",
-            "content": "Lorem ipsum"
-        },
-        
-        "highlight-box--large": {
-            "title": "Big news",
-            "content": "Loremore ipsumore",
-            "classes": "highlight-box--large"
-        },
+```json
+{
+    "highlight-box": {
+        "title": "Normal news",
+        "content": "Lorem ipsum"
+    },
+    
+    "highlight-box--large": {
+        "title": "Big news",
+        "content": "Loremore ipsumore",
+        "classes": "highlight-box--large"
+    },
 
-        "highlight-box--largest": {
-            "title": "Biggest news",
-            "content": "Loremost ipsumost",
-            "classes": "highlight-box--largest"
-        }
-
+    "highlight-box--largest": {
+        "title": "Biggest news",
+        "content": "Loremost ipsumost",
+        "classes": "highlight-box--largest"
     }
+
+}
+```
 
 GEL (gel.html):
 
 Loop through each version of the component and output the highlight-box partial with that context
 
-    {{each highlight-box}}
-        {{highlight-box this}}
-    {{/each}}
+```handlebars
+\{{each highlight-box}}
+    \{{highlight-box this}}
+\{{/each}}
+```
 
 Yeoman generator
