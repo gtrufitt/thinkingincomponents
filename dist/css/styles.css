@@ -526,3 +526,227 @@ table {
 @include font-face('Univers Condensed', '/fonts/univers-condensed');
 @include font-face('Univers Condensed', '/fonts/univers-condensed-bold', bold, italic);
 */
+/* Base Styles */
+h1 {
+  height: 400px;
+  line-height: 400px;
+  background: url(../images/newyork.jpg);
+  background-size: cover;
+  margin: 0;
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.3);
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  max-width: 1280px;
+  min-width: 320px;
+  padding: 0 50px;
+  margin: 0 auto;
+}
+
+/* Syntax Highlighting */
+code,
+pre {
+  padding: 0 3px 2px;
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+  border-radius: 3px;
+}
+
+code {
+  padding: 2px 6px 3px;
+  color: #960f4a;
+  background-color: #fcf0f7;
+  line-height: 1.5;
+}
+
+pre {
+  color: #a2a8a8;
+  padding: 20px;
+  margin: 1em 0 3em;
+  font-family: monaco, monospace;
+  line-height: 1.7em;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+pre code {
+  font-size: 14px;
+}
+
+/* github.com style (c) Vasily Polovnyov <vast@whiteants.net> */
+pre code {
+  display: block;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8ff;
+  white-space: pre-wrap;
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic;
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold;
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #960f4a;
+}
+
+pre .title,
+pre .id,
+pre .coffeescript .params,
+pre .scss .preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal;
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold;
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal;
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080;
+}
+
+pre .regexp {
+  color: #009926;
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold;
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073;
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3;
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold;
+}
+
+pre .deletion {
+  background: #ffdddd;
+}
+
+pre .addition {
+  background: #ddffdd;
+}
+
+pre .diff .change {
+  background: #0086b3;
+}
+
+pre .chunk {
+  color: #aaaaaa;
+}
+
+code,
+pre {
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.428571429;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 7px;
+}
+
+pre.prettyprint {
+  margin-bottom: 20px;
+}
+
+pre code {
+  padding: 0;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}

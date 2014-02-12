@@ -17,6 +17,7 @@
 </head>
 <body>
     <h1>Thinking in components</h1>
+<div class="content">
     <h2 id="what-is-thinking-in-components-">What is &#39;Thinking in components&#39;?</h2>
 <h3 id="a-componentised-architecture-of-contextless-front-end-elements-">A componentised architecture of contextless front-end elements.</h3>
 <p>Developing in a modular fashion is engrained in most back-end development styles and, with the rise of MV* JS, become far more popular when writing JavaScript. Some of the ideas can be translated to mark-up and css. Thinking in components helps front-end developers build consistent, high-quality and maintainable websites but for the process to be smooth, there needs to be buy in from UX, Creative, Client and Business. This website looks to document the tools to help build componentised architectures, and tips on how to gain the support of all parties and stakeholders.</p>
@@ -37,9 +38,11 @@
  
             <h2 id="wireframe-components">Wireframe Components</h2>
 <p>By focussing on components in the wireframing and conception stage of a site build, UXers can help to shape the complex nature of pages into more focussed pieces of functionality enabling more discussion around individual element functionality as well as how an entire page fits together.  </p>
+<p>Build up common controls library.</p>
 <blockquote>
 <p>You can use component-based techniques to break complex problems (a page or even an entire site design) into parts that are easier to conceive, understand, and communicate. <a href="http://unify.eightshapes.com/what-you-get/wireframe-components/">Wireframe Components</a></p>
 </blockquote>
+<p><a href="http://speckyboy.com/2013/04/29/30-wireframe-templates-and-toolkits/">http://speckyboy.com/2013/04/29/30-wireframe-templates-and-toolkits/</a></p>
 
             <h2 id="style-tiles-element-collages">Style Tiles &amp; Element Collages</h2>
 <p>Style Tiles and Element Collages are tools to enable the abstract design of websites, out of context of pages. The idea for both style tiles and element collages, is creating conversations about the design direction and focus. It matches with our &#39;thinking in components&#39; philosophy in that the abstract nature of Style Tiles and Element Collages helps our designer friends to portray their ideas out of context of full comps - in the same way that we want to build our front-end components out of context of their pages.</p>
@@ -58,33 +61,90 @@
 <p>A component audit can be a quick list or a full table of components, but is designed to take a non-componentised design and list the related components and their modifications in a quick reference. You may even find that the front-end developer and designer spending an hour or two working on a component audit together that the beginning of the project helps to iron out any miscommunication between the implementation and design.</p>
 
             <h2 id="style-guides-and-global-experience-language">Style guides and global experience language</h2>
-<p>Style guides and GELs are designed to give pointers in design direction, including </p>
-<p><a href="http://paulrobertlloyd.com/about/styleguide/">http://paulrobertlloyd.com/about/styleguide/</a>
+<p>Style guides and GELs are designed to give pointers in design direction but can also include content style guides.</p>
+<h3 id="articles">Articles</h3>
+<p><a href="http://paulrobertlloyd.com/2010/12/styleguides_for_the_web/">http://paulrobertlloyd.com/2010/12/styleguides_for_the_web/</a>
 <a href="http://www.smashingmagazine.com/2010/07/21/designing-style-guidelines-for-brands-and-websites/">http://www.smashingmagazine.com/2010/07/21/designing-style-guidelines-for-brands-and-websites/</a>
 <a href="http://www.webstyleguide.com/wsg3/index.html">http://www.webstyleguide.com/wsg3/index.html</a>
 <a href="http://24ways.org/2011/front-end-style-guides/">http://24ways.org/2011/front-end-style-guides/</a></p>
+<h3 id="examples">Examples</h3>
+<p><a href="http://www.channel4.com/about_c4/styleguide/downloads/C4StyleGuide1.1.pdf">http://www.channel4.com/about_c4/styleguide/downloads/C4StyleGuide1.1.pdf</a>
+<a href="https://www.gov.uk/design-principles/style-guide">https://www.gov.uk/design-principles/style-guide</a>
+<a href="http://styleguide.thenextweb.com/">http://styleguide.thenextweb.com/</a>
+<a href="http://paulrobertlloyd.com/about/styleguide/">http://paulrobertlloyd.com/about/styleguide/</a></p>
  
             <h2 id="pattern-libraries">Pattern libraries</h2>
-<p>Pattern libraries are designed to hold style-free project-indpendent patterns, they should be skeleton structure with no style.</p>
+<p>Pattern libraries are designed to hold style-free project-indpendent patterns, they should be skeleton structure with no style. They are common patterns of mark-up and style.</p>
+<p><a href="https://ux.mailchimp.com/patterns/">https://ux.mailchimp.com/patterns/</a>
+<a href="http://developer.yahoo.com/ypatterns/">http://developer.yahoo.com/ypatterns/</a>
+<a href="http://bradfrost.github.io/this-is-responsive/patterns.html">http://bradfrost.github.io/this-is-responsive/patterns.html</a>
+<a href="http://alistapart.com/blog/post/getting-started-with-pattern-libraries">http://alistapart.com/blog/post/getting-started-with-pattern-libraries</a>
+<a href="http://blog.teamtreehouse.com/pears-an-open-source-collection-of-common-markup-style">http://blog.teamtreehouse.com/pears-an-open-source-collection-of-common-markup-style</a>
+<a href="http://www.starbucks.com/static/reference/styleguide/">http://www.starbucks.com/static/reference/styleguide/</a></p>
 
+        <h2 id="coding-styles">Coding Styles</h2>
+<p>Bem
+SMACSS
+OOCSS</p>
 
+        <h2 id="tools">Tools</h2>
+<p>There are a great number of tools and techniques beyond those mentioned above that can help us to build a componentised architecture. The following are some things that I have used to create interactive style tiles / style guides and pattern libraries and some things that I would look to experiment with in the future.</p>
+<h3 id="assemble-handlebars-sass-and-require-js">Assemble &amp; Handlebars, sass and require.js</h3>
+<h4 id="assemble-handlebars">Assemble &amp; Handlebars</h4>
+<p>Using Assemble, we can generate our mark-up within partials using handlebars. This allows us to bring logic into our front-end components, forcing us to think clearly about the situations in which our components will be used, what elements within our components are modifiers and how different data is displayed. We may, for example have the following component:</p>
+<p>Handlebars Mark-up (highlight-box.hbs):</p>
+<pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"highlight-box<span class="expression">{{<span class="variable"><span class="keyword">if</span></span> <span class="variable">classes</span>}}</span> <span class="expression">{{<span class="variable">classes</span>}}</span><span class="expression">{{<span class="end-block">/<span class="keyword">if</span></span>}}</span>"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h2</span> <span class="attribute">class</span>=<span class="value">"highlight-box__title"</span>&gt;</span><span class="expression">{{<span class="variable">title</span>}}</span><span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="expression">{{<span class="variable">content</span>}}</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+<p>Data (highlight-box.json):
+Our highlight-box data contains our base components and each modifier of that base. We can </p>
+<pre><code class="language-json">{
+    "<span class="attribute">components</span>": <span class="value">{
+        "<span class="attribute">highlight-box</span>": <span class="value">{
+        "<span class="attribute">title</span>": <span class="value"><span class="string">"Normal news"</span></span>,
+        "<span class="attribute">content</span>": <span class="value"><span class="string">"Lorem ipsum"</span>
+        </span>}</span>,
+
+        "<span class="attribute">highlight-box--large</span>": <span class="value">{
+            "<span class="attribute">title</span>": <span class="value"><span class="string">"Big news"</span></span>,
+            "<span class="attribute">content</span>": <span class="value"><span class="string">"Loremore ipsumore"</span></span>,
+            "<span class="attribute">classes</span>": <span class="value"><span class="string">"highlight-box--large"</span>
+        </span>}</span>,
+
+        "<span class="attribute">highlight-box--largest</span>": <span class="value">{
+            "<span class="attribute">title</span>": <span class="value"><span class="string">"Biggest news"</span></span>,
+            "<span class="attribute">content</span>": <span class="value"><span class="string">"Loremost ipsumost"</span></span>,
+            "<span class="attribute">classes</span>": <span class="value"><span class="string">"highlight-box--largest"</span>
+        </span>}
+    </span>}
+</span>}</code></pre>
+<p>Patterns (patterns.html):</p>
+<p>Loop through each version of the component and output the highlight-box partial with that context</p>
+<pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#highlight</span>-<span class="variable">box</span>}}</span>
+    <span class="expression">{{<span class="begin-block">#<span class="keyword">each</span> components</span>}}</span>
+        <span class="expression">{{&gt;<span class="variable">highlight</span>-<span class="variable">box</span> <span class="variable">this</span>}}</span>
+    <span class="expression">{{<span class="end-block">/<span class="keyword">each</span></span>}}</span>
+<span class="expression">{{<span class="end-block">/highlight</span>-<span class="variable">box</span>}}</span></code></pre>
+<h4 id="sass">Sass</h4>
+<p>Sass will enable us to split our css into components</p>
+<p>Yeoman generator</p>
+        
         <h2 id="getting-buy-in">Getting Buy-In</h2>
 <h3 id="creative-buy-in-">Creative Buy-In.</h3>
 <ul>
-<li>Easier for front-end to match the design</li>
-<li>Consistent design across pages and elements</li>
-<li>Easier to spot inconsistencies between design elements</li>
+<li>Easier for the front-end to follow through on design concepts</li>
+<li>Easier to get a consistent design across pages and elements and see the in-consistencies</li>
 </ul>
-<h3 id="client-buy-in-">Client Buy-In.</h3>
+<h3 id="client-and-business-buy-in-">Client and Business Buy-In.</h3>
 <ul>
 <li>Easy to see the design in a variety of formats.</li>
-</ul>
-<h3 id="business-buy-in-">Business Buy-In.</h3>
-<ul>
 <li>Higher quality work</li>
-<li>Increased &#39;velocity&#39;</li>
+<li>Increased velocity</li>
+<li>Better processes for future work</li>
 </ul>
 
+</div>
     <!--[if lt IE 9]> <script src="js/libs/respond.min.js"></script> <![endif]-->
     <script data-main="js/modules/app" src="js/require.js"></script>
 </body>

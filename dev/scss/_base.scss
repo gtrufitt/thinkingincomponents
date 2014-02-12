@@ -1,0 +1,21 @@
+h1 {
+    height: 400px;
+    line-height: 400px;
+    background: url(../images/newyork.jpg);
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    font-size: 70px;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+    -webkit-text-fill-color: rgba(0,0,0,0.3);
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.5);    
+}
+
+.content {
+    max-width: 1280px;
+    min-width: 320px;
+    padding: 0 50px;
+    margin: 0 auto;   
+}

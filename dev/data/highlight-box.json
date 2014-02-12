@@ -1,0 +1,22 @@
+{
+    "components": {
+        "highlight-box": {
+        "title": "Normal news",
+        "content": "Lorem ipsum"
+        },
+        
+        "highlight-box--large": {
+            "title": "Big news",
+            "content": "Loremore ipsumore",
+            "classes": "highlight-box--large"
+        },
+
+        "highlight-box--largest": {
+            "title": "Biggest news",
+            "content": "Loremost ipsumost",
+            "classes": "highlight-box--largest"
+        }
+    }
+
+}
+

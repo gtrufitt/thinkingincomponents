@@ -1,13 +1,11 @@
 ## Getting Buy-In
 
 ### Creative Buy-In.
-- Easier for front-end to match the design
-- Consistent design across pages and elements
-- Easier to spot inconsistencies between design elements
+- Easier for the front-end to follow through on design concepts
+- Easier to get a consistent design across pages and elements and see the in-consistencies
 
-### Client Buy-In.
+### Client and Business Buy-In.
 - Easy to see the design in a variety of formats.
-
-### Business Buy-In.
 - Higher quality work
-- Increased 'velocity'
+- Increased velocity
+- Better processes for future work

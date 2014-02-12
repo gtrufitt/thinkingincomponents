@@ -1,3 +1,9 @@
+require.config({
+    paths: {
+
+    }
+});
+
 define('app', ['jquery'], function ($) {
     'use strict';
 

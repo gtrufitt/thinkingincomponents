@@ -148,6 +148,10 @@ module.exports = function (grunt) {
                 src: [JS_PATH + 'require.js',
                         JS_PATH + '/libs/*'],
                 dest: CONTENT_PATH
+            },
+            images: {
+                src: ['images/**/*'],
+                dest: CONTENT_PATH
             }
         },
 
@@ -243,9 +247,9 @@ module.exports = function (grunt) {
     grunt.registerTask('local-html', ['assemble']);
     grunt.registerTask('build-html', ['assemble']);
 
-    grunt.registerTask('local-js', ['jshint', 'clean:js', 'copy:js']);
+    grunt.registerTask('local-js', ['jshint', 'clean:js', 'copy:js', 'copy:images']);
     grunt.registerTask('build-js', ['jshint', 'clean:reports', 'clean:js',
-                                    'copy:libraries', 'requirejs', 'jasmine:coverage']);
+                                    'copy:libraries', 'copy:images', 'requirejs', 'jasmine:coverage']);
 
     grunt.registerTask('local-css', ['clean:css', 'sass:local']);
     grunt.registerTask('build-css', ['clean:css', 'sass:build']);
